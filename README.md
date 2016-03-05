@@ -1,5 +1,5 @@
 # 9.6-dbgen-xmls
-xmls for 3DS 9.6 crypto titles
+xmls for 3DS 9.6 crypto titles, for use with *hax
 
 Using https://github.com/smealum/ninjhax2.x/blob/master/scripts/96crypto_dbgen.py to generate:
 ```
