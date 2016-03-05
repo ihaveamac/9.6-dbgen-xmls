@@ -1,3 +1,4 @@
+<!-- SmileBASIC (USA) -->
 <header>
 	<data_address>0x2D9000</data_address>
 	<processAppCodeAddress>0x105000</processAppCodeAddress>
