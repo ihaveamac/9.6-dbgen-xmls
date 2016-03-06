@@ -1,0 +1,27 @@
+<!-- Bravely Second: End Layer (EUR) -->
+<header>
+	<data_address>0x730000</data_address>
+	<processAppCodeAddress>0x105000</processAppCodeAddress>
+	<num>0x3</num>
+	<text_end>0x160000</text_end>
+	<processLinearOffset>0x600000</processLinearOffset>
+	<processHookAddress>0x103F20</processHookAddress>
+	<data_size>0x0</data_size>
+</header>
+<map>
+	<entry>
+		<src>0x100000</src>
+		<dst>0x8000</dst>
+		<size>0x5f8000</size>
+	</entry>
+	<entry>
+		<src>0x6f8000</src>
+		<dst>-0x30000</dst>
+		<size>0x30000</size>
+	</entry>
+	<entry>
+		<src>0x728000</src>
+		<dst>-0x38000</dst>
+		<size>0x8000</size>
+	</entry>
+</map>
