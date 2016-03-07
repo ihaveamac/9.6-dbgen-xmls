@@ -1,0 +1,27 @@
+<!-- Angry Video Game Nerd Adventures (USA) -->
+<header>
+	<data_address>0x3D6000</data_address>
+	<processAppCodeAddress>0x105000</processAppCodeAddress>
+	<num>0x3</num>
+	<text_end>0x160000</text_end>
+	<processLinearOffset>0x200000</processLinearOffset>
+	<processHookAddress>0x395CE0</processHookAddress>
+	<data_size>0x0</data_size>
+</header>
+<map>
+	<entry>
+		<src>0x100000</src>
+		<dst>0x8000</dst>
+		<size>0x1f8000</size>
+	</entry>
+	<entry>
+		<src>0x2f8000</src>
+		<dst>-0xd0000</dst>
+		<size>0xd0000</size>
+	</entry>
+	<entry>
+		<src>0x3c8000</src>
+		<dst>-0xde000</dst>
+		<size>0xe000</size>
+	</entry>
+</map>
