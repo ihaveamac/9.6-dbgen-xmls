@@ -1,0 +1,17 @@
+<!-- Monster Hunter Cross (JPN) -->
+<header>
+	<data_address>0xDF8000</data_address>
+	<processAppCodeAddress>0x105000</processAppCodeAddress>
+	<num>0x1</num>
+	<text_end>0x160000</text_end>
+	<processLinearOffset>0xD00000</processLinearOffset>
+	<processHookAddress>0x10F9A0</processHookAddress>
+	<data_size>0x0</data_size>
+</header>
+<map>
+	<entry>
+		<src>0x100000</src>
+		<dst>0x8000</dst>
+		<size>0xcf8000</size>
+	</entry>
+</map>
