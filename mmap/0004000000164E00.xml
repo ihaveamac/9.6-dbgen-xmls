@@ -1,0 +1,27 @@
+<!-- Kaitou Joker - Toki o Koeru Kaitou to Ushinawareta Houseki (JPN) -->
+<header>
+	<data_address>0x455000</data_address>
+	<processAppCodeAddress>0x105000</processAppCodeAddress>
+	<num>0x3</num>
+	<text_end>0x160000</text_end>
+	<processLinearOffset>0x300000</processLinearOffset>
+	<processHookAddress>0x102F80</processHookAddress>
+	<data_size>0x0</data_size>
+</header>
+<map>
+	<entry>
+		<src>0x100000</src>
+		<dst>0x8000</dst>
+		<size>0x2f8000</size>
+	</entry>
+	<entry>
+		<src>0x3f8000</src>
+		<dst>-0x50000</dst>
+		<size>0x50000</size>
+	</entry>
+	<entry>
+		<src>0x448000</src>
+		<dst>-0x5d000</dst>
+		<size>0xd000</size>
+	</entry>
+</map>
