@@ -1,0 +1,27 @@
+<!-- Pokémon Super Mystery Dungeon (JPN) -->
+<header>
+	<data_address>0x95B000</data_address>
+	<processAppCodeAddress>0x105000</processAppCodeAddress>
+	<num>0x3</num>
+	<text_end>0x160000</text_end>
+	<processLinearOffset>0x800000</processLinearOffset>
+	<processHookAddress>0x1001A0</processHookAddress>
+	<data_size>0x0</data_size>
+</header>
+<map>
+	<entry>
+		<src>0x100000</src>
+		<dst>0x8000</dst>
+		<size>0x7f8000</size>
+	</entry>
+	<entry>
+		<src>0x8f8000</src>
+		<dst>-0x60000</dst>
+		<size>0x60000</size>
+	</entry>
+	<entry>
+		<src>0x958000</src>
+		<dst>-0x63000</dst>
+		<size>0x3000</size>
+	</entry>
+</map>
