@@ -5,9 +5,9 @@ This is a repository containing XML files for use with *hax 2.7. They are game-s
 
 ### Requirements
 
-- [Python 2.7](https://www.python.org)
-- A 3DS with a version that allows for exploiting the arm9
-- [Decrypt9 by Archshift](https://github.com/archshift/Decrypt9), [Decrypt9 WIP by d0k3](https://github.com/d0k3/Decrypt9) or [Decrypt9 UI by Shadowtrance](https://github.com/shadowtrance/Decrypt9)
+- [Python 2.7](https://www.python.org/downloads/release/python-2711/)
+- A 3DS with 9.2.0-20 or lower, or using arm9loaderhax
+- [Decrypt9 by Archshift](https://github.com/archshift/Decrypt9), [Decrypt9WIP by d0k3](https://github.com/d0k3/Decrypt9) or [Decrypt9UI by Shadowtrance](https://github.com/shadowtrance/Decrypt9)
 - [3dstool](https://github.com/dnasdw/3dstool) and [ctrtool](https://github.com/profi200/Project_CTR)
 - A rom of the game that uses 9.6 crypto
 - [This modified script](https://gist.github.com/ihaveamac/304bb69e98fc4ce2d5c9) of ncchinfo_gen.py
@@ -15,7 +15,7 @@ This is a repository containing XML files for use with *hax 2.7. They are game-s
  - `slot0x25keyX.bin` (SHA-256: 7e878dde92938e4c717dd53d1ea35a75633f5130d8cfd7c76c8f4a8fb87050cd) (only needed when decrypting Secure2 if your 3DS in below version 7.0 or if you're using arm9loaderhax)
  - `slot0x18keyX.bin` (SHA-256: 76c76b655db85219c5d35d517ffaf7a43ebad66e31fbdd5743925937a893ccfc) (only needed when decrypting Secure3 on certain New3DS exclusive titles if you're using a Old3DS or if you're using arm9loaderhax)
  - `slot0x1BkeyX.bin` (SHA-256: 9a201e7c3737f3722e5b578d11837f197ca65bf52625b2690693e4165352c6bb) (only needed when decrypting Secure4 on certain New3DS exclusive titles on any console)
-- A basic knowledge on how to use a terminal
+- A basic knowledge on how to use a terminal/command line
 
 ### Decrypting the rom
 
