@@ -30,5 +30,5 @@ If your rom is a .cia, then you will have to extract the contents out of the cia
 ctrtool --contents="filename" rom.cia
 ```
 This should create files starting with the same name specified in the `--contents` argument, if so, run `ncchinfo_gen_exefs.bin` on `filename.0000.xxxxxxxx` (replace "filename" with the value of the --contents argument, and the x with whatever value is in the filename).
-If nothing was 
+If nothing was extracted, then the cia your using may be invalid.
 
