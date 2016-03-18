@@ -41,6 +41,7 @@ Also, if `ncchinfo_gen_exefs.py` only prints "Done!" or the `ncchinfo.bin` size 
 
 Now it's time to generate the xorpads using Decrypt9, you need to place the `ncchinfo.bin`, `seeddb.bin` (only if rom is from the eShop), and the necessary KeyX files in the SD card, for the KeyX files place them in root of the SD card, and for `ncchinfo.bin` and `seeddb.bin`, if your using Archshift's Decrypt9 also place them in root of your SD card, if your using d0k3's Decrypt9WIP or Shadowtrance's Decrypt9UI place them inside `/Decrypt9` directory located in the root of SD card.
 Start Decrypt9 from whatever entrypoint on your 3DS, go to XORpad Generator Options and select NCCH Padgen. If everything goes well, this will generate the XORpads to decrypt the rom exefs.
+The XORpads will be placed in the root of SD card when using Archshift's Decrypt9, or inside `/Decrypt9` in the SD card when using d0k3's Decrypt9WIP or Shadowtrance's Decrypt9UI.
 
 #### Applying the XORpads on the exefs
 
