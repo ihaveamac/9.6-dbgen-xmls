@@ -20,7 +20,7 @@ This is a repository containing XML files for use with *hax 2.7. They are game-s
 
 ### Decrypting the rom
 
-- Preparations:
+#### Preparations
 
 If your rom is a .3ds, then just run `ncchinfo_gen_exefs.py` on it.
 ```
@@ -36,12 +36,12 @@ This should create files starting with the same name specified in the `--content
 If nothing was extracted, then the cia your using may be invalid.
 Also, if `ncchinfo_gen_exefs.py` only prints "Done!" or the `ncchinfo.bin` size is 16 bytes, then the cia your might be encrypted or something is wrong with it.
 
-- Generating the XORpads:
+#### Generating the XORpads:
 
 Now it's time to generate the xorpads using Decrypt9, you need to place the ncchinfo.bin and the necessary KeyX files in the SD card, if your using Archshift's Decrypt9 place them in root of your SD card, if your using d0k3's Decrypt9WIP or Shadowtrance's Decrypt9UI place them inside Decrypt9 directory located in the root of SD card.
 Start Decrypt9 from whatever entrypoint on your 3DS, go to XORpad Generator Options and select NCCH Padgen, if everything goes well, this will generate the xorpads to decrypt the rom exefs.
 
-- Applying the XORpads on the exefs:
+#### Applying the XORpads on the exefs:
 
 With the xorpads you can now start decrypting the rom exefs, if your rom is a .3ds, then you will have to extract the main partition, this can be done by running `3dstool`, if you have a .cia you can skip this command.
 ```
