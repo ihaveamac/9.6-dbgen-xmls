@@ -11,8 +11,9 @@ This is a repository containing XML files for use with *hax 2.7. They are game-s
 - [3dstool](https://github.com/dnasdw/3dstool) and [ctrtool](https://github.com/profi200/Project_CTR)
 - A rom of the game that uses 9.6 crypto
 - [This modified script](https://gist.github.com/ihaveamac/304bb69e98fc4ce2d5c9) of ncchinfo_gen.py
+- Smealum's [96crypto_dbgen.py](https://github.com/smealum/ninjhax2.x/blob/master/scripts/96crypto_dbgen.py) script to generate the actual xmls
 - Certain key files (these files can not be linked here):
- - `slot0x25keyX.bin` (SHA-256: 7e878dde92938e4c717dd53d1ea35a75633f5130d8cfd7c76c8f4a8fb87050cd) (only needed when decrypting Secure2 if your 3DS in below version 7.0 or if you're using arm9loaderhax)
+ - `slot0x25keyX.bin` (SHA-256: 7e878dde92938e4c717dd53d1ea35a75633f5130d8cfd7c76c8f4a8fb87050cd) (only needed when decrypting Secure2 if your 3DS is below version 7.0 or if you're using arm9loaderhax)
  - `slot0x18keyX.bin` (SHA-256: 76c76b655db85219c5d35d517ffaf7a43ebad66e31fbdd5743925937a893ccfc) (only needed when decrypting Secure3 on certain New3DS exclusive titles if you're using a Old3DS or if you're using arm9loaderhax)
  - `slot0x1BkeyX.bin` (SHA-256: 9a201e7c3737f3722e5b578d11837f197ca65bf52625b2690693e4165352c6bb) (only needed when decrypting Secure4 on certain New3DS exclusive titles on any console)
 - A basic knowledge on how to use a terminal/command line
@@ -29,6 +30,39 @@ If your rom is a .cia, then you will have to extract the contents out of the cia
 ```
 ctrtool --contents="filename" rom.cia
 ```
-This should create files starting with the same name specified in the `--contents` argument, if so, run `ncchinfo_gen_exefs.bin` on `filename.0000.xxxxxxxx` (replace "filename" with the value of the --contents argument, and the x with whatever value is in the filename).
+This should create files starting with the same name specified in the `--contents` argument, if so, run `ncchinfo_gen_exefs.py` on `filename.0000.xxxxxxxx` (replace "filename" with the value of the --contents argument, and the x with whatever value is in the filename).
 If nothing was extracted, then the cia your using may be invalid.
+Also, if `ncchinfo_gen_exefs.py` only prints "Done!" or the `ncchinfo.bin` size is 16 bytes, then the cia your might be encrypted or something is wrong with it.
 
+Now it's time to generate the xorpads using Decrypt9, you need to place the ncchinfo.bin and the necessary KeyX files in the SD card, if your using Archshift's Decrypt9 place them in root of your SD card, if your using d0k3's Decrypt9WIP or Shadowtrance's Decrypt9UI place them inside Decrypt9 directory located in the root of SD card.
+Start Decrypt9 from whatever entrypoint on your 3DS, go to XORpad Generator Options and select NCCH Padgen, if everything goes well, this will generate the xorpads to decrypt the rom exefs.
+
+With the xorpads you can now start decrypting the rom exefs, if your rom is a .3ds, then you will have to extract the main partition, this can be done by running `3dstool`, if you have a .cia you can skip this command.
+```
+3dstool -xvt0f cci filename.cxi rom.3ds
+```
+This will extract the main partition to `filename.cxi`, if you're working with a .cia you already have extracted the main content previously (`filename.0000.xxxxxxxx`) and you have to replace `filename.cxi` with that file on the next command, now it's time to get the actual decrypted exefs with `3dstool` using the xorpads, so you may want to move them to the same directory as the rom.
+If you only have one xorpad (.Main.exefs_norm.xorpad) run `3dstool` like this:
+```
+3dstool -xvtf cxi filename.cxi --exefs exefs.bin --exefs-xor 000400000XXXXX00.Main.exefs_norm.xorpad
+```
+If you have two xorpads (.Main.exefs_norm.xorpad and .Main.exefs_7x.xorpad) run `3dstool` like this instead:
+```
+3dstool -xvtf cxi filename.cxi --exefs exefs.bin --exefs-xor 000400000XXXXX00.Main.exefs_norm.xorpad --exefs-top-xor 000400000XXXXX00.Main.exefs_7x.xorpad
+```
+(Replace the crosses with the actual title id.)
+And if no mistakes where made or nothing failed, you should now have a decrypted `exefs.bin`.
+
+### Extract code.bin and generate xml
+
+Now this is the easy part, extract and decompress the `code.bin` can be done by running `ctrtool`:
+```
+ctrtool -t exefs --exefsdir=exefs --decompresscode exefs.bin
+```
+This should create a directory named exefs with the `code.bin` in it.
+Now it's time to generate the xml by running smealum's `96crypto_dbgen.py` script.
+```
+python 96crypto_dbgen.py exefs/code.bin > 000400000XXXXX00.xml
+```
+(Replace the crosses with actual title id.)
+This will print the offsets in to the xml.
