@@ -71,7 +71,7 @@ But if it's successful, then extract the contents out of the CIA and run `ncchin
 ```
 ctrtool --contents=contents rom.cia
 
-python ncchinfo_gen_exefs.py content.0000.xxxxxxxx
+python ncchinfo_gen_exefs.py contents.0000.xxxxxxxx
 ```
 (Don't forget to replace `xxxxxxxx` with the value in the filename)
 This should create named `ncchinfo.bin`.
