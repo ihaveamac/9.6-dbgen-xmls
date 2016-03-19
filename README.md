@@ -9,7 +9,7 @@ This is a repository containing XML files for use with *hax 2.7. They are game-s
 - A 3DS with 9.2.0-20 or lower, or using arm9loaderhax
 - [Decrypt9 by Archshift](https://github.com/archshift/Decrypt9), [Decrypt9WIP by d0k3](https://github.com/d0k3/Decrypt9) or [Decrypt9UI by Shadowtrance](https://github.com/shadowtrance/Decrypt9)
 - [3dstool](https://github.com/dnasdw/3dstool) and [ctrtool](https://github.com/profi200/Project_CTR)
-- A rom of the game that uses 9.6 crypto
+- A rom of the game that uses 9.6 crypto ([list of games with their respective seeds and title ids](http://pastebin.com/zNM8zYwa)), just make sure the game has not been patched by the community of hackers, for example rom hacks sometimes have a modified code.bin so don't use them.
 - [This modified script](https://gist.github.com/ihaveamac/304bb69e98fc4ce2d5c9) of ncchinfo_gen.py
 - Smealum's [96crypto_dbgen.py](https://github.com/smealum/ninjhax2.x/blob/master/scripts/96crypto_dbgen.py) script to generate the actual xmls
 - Certain key files (these files can not be linked here, you'll have to search for them, and the size of them should be exactly 16 bytes):
@@ -47,7 +47,7 @@ This method is easy and will allow you to skip most of the upcoming parts, but c
 
 Place the CIA inside the `/D9Game` directory on the root of the SD card, the `seeddb.bin` inside `/Decrypt9` and the necessary KeyX files on the root of the SD.
 Start Decrypt9 from whatever entrypoint on your 3DS, go to Game Decryptor Options and select CIA Decryptor (deep), after that you'll have to wait until it's finished.
-If it fails, then there's something wrong with you CIA.
+If it fails, then there's something wrong with your CIA.
 
 But if it's successful, then, since you have decrypted everything, you might as well extract the contents and the exefs.
 ```
@@ -56,7 +56,7 @@ ctrtool --contents=contents rom.cia
 ctrtool --exefsdir=exefs --decompresscode contents.0000.xxxxxxxx
 ```
 (Don't forget to replace `xxxxxxxx` with the value in the filename)
-This should extract the decompressed `code.bin` out of the exefs on the main content and you can skip everything below up to "Extract code.bin and generate xml".
+This should extract the decompressed `code.bin` out of the exefs on the main content and you can skip everything below up to "Extract code.bin and generate xml" and skip the first command.
 * `--decompresscode` may not be needed here, however we don't know how older versions of ctrtool will react to it missing.
 
 ###### Method 2 - Shallow CIA Decryption
@@ -65,7 +65,7 @@ This method it's also easy and it can also be less time consuming, but you still
 
 Place the CIA inside the `/D9Game` directory on the root of the SD card.
 Start Decrypt9 from whatever entrypoint on your 3DS, go to Game Decryptor Options and select CIA Decryptor (shallow), after that you'll have to wait until it's finished.
-If it fails, then there's something wrong with you CIA.
+If it fails, then there's something wrong with your CIA.
 
 But if it's successful, then extract the contents out of the CIA and run `ncchinfo_gen_exefs.py` again.
 ```
@@ -114,3 +114,16 @@ python 96crypto_dbgen.py exefs/code.bin > 000400000XXXXX00.xml
 ```
 (Replace the crosses with actual title id.)
 This will print the offsets in to the xml.
+
+What's next? Well, technically, you finished, just place the xml on `/mmap` on root of the SD card.
+
+But, if you can handle editing a xml, why don't you add a comment with the name of the game and region. Just add a line on the start of the xml that looks like this:
+```
+<!-- Name of Game (Region) -->
+```
+For example, if the game was "Animal Crossing: Happy Home Designer" the USA version, it would look like this:
+```
+<!-- Animal Crossing: Happy Home Designer (USA) -->
+```
+
+And while you're at it, why not make a pull request on github, adding missing xmls, if you know how. But if don't, there a lot of documentation on [Github help page](https://help.github.com/).
