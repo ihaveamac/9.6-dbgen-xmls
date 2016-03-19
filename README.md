@@ -35,13 +35,52 @@ ctrtool --contents=contents rom.cia
 ```
 This should create files starting with the same name specified in the `--contents` argument, if so, run `ncchinfo_gen_exefs.py` on `contents.0000.xxxxxxxx` (replace `xxxxxxxx` with the value in the filename).
 If nothing was extracted, then the CIA your using may be invalid.
-Also, if `ncchinfo_gen_exefs.py` only prints "Done!" or the `ncchinfo.bin` size is 16 bytes, then the cia your might be encrypted or something is wrong with it.
+Also, if `ncchinfo_gen_exefs.py` only prints "Done!" or the `ncchinfo.bin` size is 16 bytes, then the CIA your might be encrypted or something is wrong with it. If your CIA was generated from CDN content using FunkyCIA then it's encrypted.
+
+##### Dealing with encrypted CIA files
+
+If your CIA is encrypted and you can't generate a valid `ncchinfo.bin` because of that, then you'll have to decrypt the CIA directly using Decrypt9, and there's two methods of decrypting the CIA.
+
+###### Method 1 - Deep CIA Decryption
+
+This method is easy and will allow you to skip most of the upcoming parts, but can be time consuming if the CIA is big.
+
+Place the CIA inside the `/D9Game` directory on the root of the SD card, the `seeddb.bin` inside `/Decrypt9` and the necessary KeyX files on the root of the SD.
+Start Decrypt9 from whatever entrypoint on your 3DS, go to Game Decryptor Options and select CIA Decryptor (deep), after that you'll have to wait until it's finished.
+If it fails, then there's something wrong with you CIA.
+
+But if it's successful, then, since you have decrypted everything, you might as well extract the contents and the exefs.
+```
+ctrtool --contents=contents rom.cia
+
+ctrtool --exefs=exefs.bin content.0000.xxxxxxxx
+```
+(Don't forget to replace `xxxxxxxx` with the value in the filename)
+This should extract the decrypted `exefs.bin` out of the main content and you can skip everything below up to "Extract code.bin and generate xml".
+
+###### Method 2 - Shallow CIA Decryption
+
+This method it's also easy and it can also be less time consuming, but you still have to do everything coming after this part.
+
+Place the CIA inside the `/D9Game` directory on the root of the SD card.
+Start Decrypt9 from whatever entrypoint on your 3DS, go to Game Decryptor Options and select CIA Decryptor (shallow), after that you'll have to wait until it's finished.
+If it fails, then there's something wrong with you CIA.
+
+But if it's successful, then extract the contents out of the CIA and run `ncchinfo_gen_exefs.py` again.
+```
+ctrtool --contents=contents rom.cia
+
+python ncchinfo_gen_exefs.py content.0000.xxxxxxxx
+```
+(Don't forget to replace `xxxxxxxx` with the value in the filename)
+This should create named `ncchinfo.bin`.
+If `ncchinfo_gen_exefs.py` only prints "Done!" or the `ncchinfo.bin` size is 16 bytes, then there's something is wrong with your CIA.
 
 #### Generating the XORpads
 
-Now it's time to generate the xorpads using Decrypt9, you need to place the `ncchinfo.bin`, `seeddb.bin` (only if rom is from the eShop), and the necessary KeyX files in the SD card, for the KeyX files place them in root of the SD card, and for `ncchinfo.bin` and `seeddb.bin`, if your using Archshift's Decrypt9 also place them in root of your SD card, if your using d0k3's Decrypt9WIP or Shadowtrance's Decrypt9UI place them inside `/Decrypt9` directory located in the root of SD card.
+Now it's time to generate the xorpads using Decrypt9, you need to place the `ncchinfo.bin`, `seeddb.bin` (only if rom is from the eShop) and the necessary KeyX files in the SD card, for the KeyX files place them in root of the SD card, and for `ncchinfo.bin` and `seeddb.bin` place them inside `/Decrypt9` directory located in the root of SD card.
 Start Decrypt9 from whatever entrypoint on your 3DS, go to XORpad Generator Options and select NCCH Padgen. If everything goes well, this will generate the XORpads to decrypt the rom exefs.
-The XORpads will be placed in the root of SD card when using Archshift's Decrypt9, or inside `/Decrypt9` in the SD card when using d0k3's Decrypt9WIP or Shadowtrance's Decrypt9UI.
+The XORpads will be placed inside `/Decrypt9` in the SD card.
 
 #### Applying the XORpads on the exefs
 
