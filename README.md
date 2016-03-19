@@ -53,10 +53,11 @@ But if it's successful, then, since you have decrypted everything, you might as 
 ```
 ctrtool --contents=contents rom.cia
 
-ctrtool --exefs=exefs.bin content.0000.xxxxxxxx
+ctrtool --exefsdir=exefs --decompresscode contents.0000.xxxxxxxx
 ```
 (Don't forget to replace `xxxxxxxx` with the value in the filename)
 This should extract the decrypted `exefs.bin` out of the main content and you can skip everything below up to "Extract code.bin and generate xml".
+* `--decompresscode` may not be needed here, however we don't know how older versions of ctrtool will react to it missing.
 
 ###### Method 2 - Shallow CIA Decryption
 
