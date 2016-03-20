@@ -126,4 +126,4 @@ For example, if the game was "Animal Crossing: Happy Home Designer" the USA vers
 <!-- Animal Crossing: Happy Home Designer (USA) -->
 ```
 
-And while you're at it, why not make a pull request on github, adding missing xmls, if you know how. But if don't, there a lot of documentation on [Github help page](https://help.github.com/).
+And while you're at it, why not make a pull request on github, adding missing xmls, if you know how. But if you don't, there a lot of documentation on [Github help page](https://help.github.com/) that can help you.
