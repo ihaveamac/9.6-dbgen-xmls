@@ -11,7 +11,7 @@ This is a repository containing XML files for use with *hax 2.7. They are game-s
 - [3dstool](https://github.com/dnasdw/3dstool) and [ctrtool](https://github.com/profi200/Project_CTR)
 - A rom of the game that uses 9.6 crypto ([list of games with their respective seeds and title ids](http://pastebin.com/zNM8zYwa)), just make sure the game has not been patched by the community of hackers, for example rom hacks sometimes have a modified code.bin so don't use them.
 - [This modified script](https://gist.github.com/ihaveamac/304bb69e98fc4ce2d5c9) of ncchinfo_gen.py
-- Smealum's [96crypto_dbgen.py](https://github.com/smealum/ninjhax2.x/blob/master/scripts/96crypto_dbgen.py) script to generate the actual xmls
+- Smealum's [96crypto_dbgen.py](https://github.com/smealum/ninjhax2.x/blob/master/scripts/96crypto_dbgen.py) script to generate the actual XMLs
 - Certain key files (these files can not be linked here, you'll have to search for them, and the size of them should be exactly 16 bytes):
  - `slot0x25keyX.bin` (SHA-256: 7e878dde92938e4c717dd53d1ea35a75633f5130d8cfd7c76c8f4a8fb87050cd) (only needed when decrypting Secure2 if your 3DS is below version 7.0 or if you're using arm9loaderhax)
  - `slot0x18keyX.bin` (SHA-256: 76c76b655db85219c5d35d517ffaf7a43ebad66e31fbdd5743925937a893ccfc) (only needed when decrypting Secure3 on certain New3DS exclusive titles if you're using a Old3DS or if you're using arm9loaderhax)
@@ -39,7 +39,7 @@ Also, if `ncchinfo_gen_exefs.py` only prints "Done!" or the `ncchinfo.bin` size 
 
 ##### Dealing with encrypted CIA files
 
-If your CIA is encrypted and you can't generate a valid `ncchinfo.bin` because of that, then you'll have to decrypt the CIA directly using Decrypt9, and there's two methods of decrypting the CIA.
+If your CIA is encrypted and you can't generate a valid `ncchinfo.bin` because of that, then you'll have to decrypt the CIA directly using Decrypt9, and there are two methods of decrypting the CIA.
 
 ###### Method 1 - Deep CIA Decryption
 
@@ -56,40 +56,40 @@ ctrtool --contents=contents rom.cia
 ctrtool --exefsdir=exefs --decompresscode contents.0000.xxxxxxxx
 ```
 (Don't forget to replace `xxxxxxxx` with the value in the filename)
-This should extract the decompressed `code.bin` out of the exefs on the main content and you can skip everything below up to "Extract code.bin and generate xml" and skip the first command.
+This should extract the decompressed `code.bin` out of the exefs on the main content and you can skip everything below up to "Extract code.bin and generate XML" and skip the first command.
 * `--decompresscode` may not be needed here, however we don't know how older versions of ctrtool will react to it missing.
 
 ###### Method 2 - Shallow CIA Decryption
 
-This method it's also easy and it can also be less time consuming, but you still have to do everything coming after this part.
+This method is also easy and it can be less time consuming, but you still have to do everything comming after this part.
 
 Place the CIA inside the `/D9Game` directory on the root of the SD card.
 Start Decrypt9 from whatever entrypoint on your 3DS, go to Game Decryptor Options and select CIA Decryptor (shallow), after that you'll have to wait until it's finished.
 If it fails, then there's something wrong with your CIA.
 
-But if it's successful, then extract the contents out of the CIA and run `ncchinfo_gen_exefs.py` again.
+But if it's successful, then extract the contents from the CIA and run `ncchinfo_gen_exefs.py` again.
 ```
 ctrtool --contents=contents rom.cia
 
 python ncchinfo_gen_exefs.py contents.0000.xxxxxxxx
 ```
 (Don't forget to replace `xxxxxxxx` with the value in the filename)
-This should create named `ncchinfo.bin`.
+This should create a file named `ncchinfo.bin`.
 If `ncchinfo_gen_exefs.py` only prints "Done!" or the `ncchinfo.bin` size is 16 bytes, then there's something is wrong with your CIA.
 
 #### Generating the XORpads
 
-Now it's time to generate the xorpads using Decrypt9, you need to place the `ncchinfo.bin`, `seeddb.bin` (only if rom is from the eShop) and the necessary KeyX files in the SD card, for the KeyX files place them in root of the SD card, and for `ncchinfo.bin` and `seeddb.bin` place them inside `/Decrypt9` directory located in the root of SD card.
+Now it's time to generate the xorpads using Decrypt9. First, you'll need to place both `ncchinfo.bin` and `seeddb.bin` (`seeddb.bin` is needed only if rom is from the eShop) inside the `/Decrypt9` directory located in the root of the SD card and the necessary KeyX files in the root of the SD card.
 Start Decrypt9 from whatever entrypoint on your 3DS, go to XORpad Generator Options and select NCCH Padgen. If everything goes well, this will generate the XORpads to decrypt the rom exefs.
 The XORpads will be placed inside `/Decrypt9` in the SD card.
 
 #### Applying the XORpads on the exefs
 
-With the xorpads you can now start decrypting the rom exefs, if your rom is a .3ds, then you will have to extract the main partition, this can be done by running `3dstool`, if you have a .cia you can skip this command.
+With the xorpads you can now start decrypting the rom exefs. If your rom is a .3ds, you will have to extract the main partition. This can be done by running `3dstool` (if you have a .cia you can skip this command).
 ```
 3dstool -xvt0f cci 0.cxi rom.3ds
 ```
-This will extract the main partition to `0.cxi`, if you're working with a .cia you already have extracted the main content previously (`contents.0000.xxxxxxxx`) and you have to replace `0.cxi` with that file on the next command, now it's time to get the actual decrypted exefs with `3dstool` using the xorpads, so you may want to move them to the same directory as the rom.
+This will extract the main partition to `0.cxi`, if you're working with a .cia you already have extracted the main content previously (`contents.0000.xxxxxxxx`) and you will have to replace `0.cxi` with that file on the next command. Now it's time to get the actual decrypted exefs with `3dstool` using the xorpads, so you may want to move them to the same directory as the rom.
 If you only have one xorpad (.Main.exefs_norm.xorpad) run `3dstool` like this:
 ```
 3dstool -xvtf cxi 0.cxi --exefs exefs.bin --exefs-xor 000400000XXXXX00.Main.exefs_norm.xorpad
@@ -99,25 +99,25 @@ If you have two xorpads (.Main.exefs_norm.xorpad and .Main.exefs_7x.xorpad) run 
 3dstool -xvtf cxi 0.cxi --exefs exefs.bin --exefs-xor 000400000XXXXX00.Main.exefs_norm.xorpad --exefs-top-xor 000400000XXXXX00.Main.exefs_7x.xorpad
 ```
 (Replace the crosses with the title id.)
-If no mistakes where made or nothing failed, you should now have a decrypted `exefs.bin`.
+If no mistakes were made or nothing failed, you should now have a decrypted `exefs.bin`.
 
-### Extract code.bin and generate xml
+### Extract code.bin and generate XML
 
 Now this is the easy part, extract and decompress the `code.bin` can be done by running `ctrtool`:
 ```
 ctrtool -t exefs --exefsdir=exefs --decompresscode exefs.bin
 ```
 This should create a directory named exefs with the `code.bin` in it.
-Now it's time to generate the xml by running smealum's `96crypto_dbgen.py` script.
+Now it's time to generate the XML by running smealum's `96crypto_dbgen.py` script.
 ```
 python 96crypto_dbgen.py exefs/code.bin > 000400000XXXXX00.xml
 ```
 (Replace the crosses with actual title id.)
-This will print the offsets in to the xml.
+This will print the offsets into the XML.
 
-What's next? Well, technically, you finished, just place the xml on `/mmap` on root of the SD card.
+What's next? Well, technically, you're done, just place the XML on `/mmap` on root of the SD card.
 
-But, if you can handle editing a xml, why don't you add a comment with the name of the game and region. Just add a line on the start of the xml that looks like this:
+But, if you can handle editing an XML, why don't you add a comment with the name of the game and region. Just add a line on the start of the XML that looks like this:
 ```
 <!-- Name of Game (Region) -->
 ```
@@ -126,4 +126,4 @@ For example, if the game was "Animal Crossing: Happy Home Designer" the USA vers
 <!-- Animal Crossing: Happy Home Designer (USA) -->
 ```
 
-And while you're at it, why not make a pull request on github, adding missing xmls, if you know how. But if you don't, there a lot of documentation on [Github help page](https://help.github.com/) that can help you.
+And while you're at it, why not make a pull request on Github, adding missing XMLs, if you know how. But if you don't how to make a pull request, there a lot of documentation on [Github help page](https://help.github.com/) with may help you.
