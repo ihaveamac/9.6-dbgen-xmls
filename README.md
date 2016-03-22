@@ -127,4 +127,4 @@ For example, if the game was "Animal Crossing: Happy Home Designer" for the USA 
 ```
 <!-- Animal Crossing: Happy Home Designer (USA) -->
 ```
-If you don't how to make a pull request, there a lot of documentation on [GitHub help page](https://help.github.com/) with may help you.
+If you don't how to make a pull request, there a lot of documentation on [GitHub help page](https://help.github.com/) which may help you.
