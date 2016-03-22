@@ -5,7 +5,7 @@ This is a repository containing XML files for use with *hax 2.7. They are game-s
 
 A full guide on how to decrypt and extract a game to generate an XML can be found at the wiki: https://github.com/ihaveamac/9.6-dbgen-xmls/wiki
 
-If you already know how to decrypt and extract a game, use https://github.com/smealum/ninjhax2.x/blob/master/scripts/96crypto_dbgen.py to generate:
+If you already know how to decrypt and extract a game, use [`96crypto_dbgen.py`](https://github.com/smealum/ninjhax2.x/blob/master/scripts/96crypto_dbgen.py) to generate:
 ```
 python 96crypto_dbgen.py decompressed_code.bin > tid.xml
 ```
