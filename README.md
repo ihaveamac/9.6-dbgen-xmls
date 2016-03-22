@@ -6,12 +6,12 @@ This is a repository containing XML files for use with *hax 2.7. They are game-s
 ### Requirements
 
 - [Python 2.7](https://www.python.org/downloads/release/python-2711/)
-- A 3DS with 9.2.0-20 or lower, or using arm9loaderhax
+- A 3DS with 9.2.0-20 or lower or using arm9loaderhax
 - [Decrypt9 by Archshift](https://github.com/archshift/Decrypt9), [Decrypt9WIP by d0k3](https://github.com/d0k3/Decrypt9) or [Decrypt9UI by Shadowtrance](https://github.com/shadowtrance/Decrypt9)
 - [3dstool](https://github.com/dnasdw/3dstool) and [ctrtool](https://github.com/profi200/Project_CTR)
 - A rom of the game that uses 9.6 encryption
  - [List of games with their respective seeds and title IDs](http://pastebin.com/zNM8zYwa)
- - Patched/rom hacks may have a modified `code.bin` so they are not a good base to start on, the original game should always be used.
+ - Patched games/rom hacks may have a modified `code.bin` so they are not a good base to start on, the original game should always be used.
 - [This modified script](https://gist.github.com/ihaveamac/304bb69e98fc4ce2d5c9) of `ncchinfo_gen.py`
 - smealum's [`96crypto_dbgen.py`](https://github.com/smealum/ninjhax2.x/blob/master/scripts/96crypto_dbgen.py) script to generate the XMLs
 - Certain key files (these files can not be linked here, you'll have to search for them, and the size of them should be exactly 16 bytes):
@@ -37,7 +37,7 @@ ctrtool --contents=contents game.cia
 ```
 This should create files starting with the same name specified in the `--contents` argument, if so, run `ncchinfo_gen_exefs.py` on `contents.0000.xxxxxxxx` (replace `xxxxxxxx` with the value in the filename).
 If nothing was extracted, then the CIA your using may be invalid.
-Also, if `ncchinfo_gen_exefs.py` only prints "Done!" or the `ncchinfo.bin` size is 16 bytes, then the CIA your might be encrypted or something is wrong with it. If your CIA was generated from CDN content using FunkyCIA then it's encrypted.
+Also, if `ncchinfo_gen_exefs.py` only prints "Done!" or the `ncchinfo.bin` size is 16 bytes, then the CIA your might be encrypted or something is wrong with it. CIAs generated from CDN content using FunkyCIA are encrypted.
 
 ##### Dealing with encrypted CIA files
 
@@ -47,8 +47,8 @@ If your CIA is encrypted and you can't generate a valid `ncchinfo.bin` because o
 
 This method is easy and will allow you to skip most of the upcoming parts, but can be time consuming if the CIA is big.
 
-Place the CIA inside the `/D9Game` directory on the root of the SD card, the `seeddb.bin` inside `/Decrypt9` and the necessary KeyX files on the root of the SD.
-Start Decrypt9 from whatever entrypoint on your 3DS, go to Game Decryptor Options and select CIA Decryptor (deep), after that you'll have to wait until it's finished.
+Place the CIA inside the `/D9Game` directory on the root of the SD card, the `seeddb.bin` inside `/Decrypt9` and the necessary KeyX files on the root of the SD or `/Decrypt9`.
+Start Decrypt9 using one of the various entry points, then go to "Game Decryptor Options" and select "CIA Decryptor (deep)". This will take some time.
 If it fails, then there's something wrong with your CIA.
 
 But if it's successful, then, since you have decrypted everything, you might as well extract the contents and the exefs.
