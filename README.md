@@ -12,3 +12,9 @@ python 96crypto_dbgen.py decompressed_code.bin > tid.xml
 `tid` would be something like 000400000014F100 (Animal Crossing: Happy Home Designer (USA))
 
 `tid.xml` would then be copied to "mmap" on the SD card.
+
+To add to the repository, add the game title to the first line of the XML, like this:
+```
+<!-- Animal Crossing: Happy Home Designer (USA) -->
+```
+Create a pull request to add a file.
