@@ -16,22 +16,22 @@ This is a repository containing XML files for use with *hax 2.7. They are game-s
  - `slot0x25keyX.bin` (SHA-256: 7e878dde92938e4c717dd53d1ea35a75633f5130d8cfd7c76c8f4a8fb87050cd) (only needed when decrypting Secure2 if your 3DS is below version 7.0 or if you're using arm9loaderhax)
  - `slot0x18keyX.bin` (SHA-256: 76c76b655db85219c5d35d517ffaf7a43ebad66e31fbdd5743925937a893ccfc) (only needed when decrypting Secure3 on certain New3DS exclusive titles if you're using a Old3DS or if you're using arm9loaderhax)
  - `slot0x1BkeyX.bin` (SHA-256: 9a201e7c3737f3722e5b578d11837f197ca65bf52625b2690693e4165352c6bb) (only needed when decrypting Secure4 on certain New3DS exclusive titles on any console)
-- `seeddb.bin` with the seed of the game (only needed if the rom came from the eShop and it isn't cryptofixed)
-- A basic knowledge on how to use a terminal/command line
+- `seeddb.bin` with the seed of the game (only needed if the rom came from the eShop and isn't cryptofixed)
+- A basic knowledge on how to use the terminal/command line
 
 ### Decrypting the rom
 
 #### Preparations
 
-If your rom is a .3ds, then just run `ncchinfo_gen_exefs.py` on it.
+If your game is a .3ds/.cci, then just run `ncchinfo_gen_exefs.py` on it.
 ```
-python ncchinfo_gen_exefs.py rom.3ds
+python ncchinfo_gen_exefs.py game.3ds
 ```
 It should generate a file named `ncchinfo.bin`. If the script only prints "Done!" or the `ncchinfo.bin` size is 16 bytes, then your rom may not be valid.
 
-If your rom is a .cia, then you will have to extract the contents out of the CIA and then run `ncchinfo_gen_exefs.py` on the main content.
+If your game is a .cia, then you will have to extract the contents out of the CIA and then run `ncchinfo_gen_exefs.py` on the main content.
 ```
-ctrtool --contents=contents rom.cia
+ctrtool --contents=contents game.cia
 ```
 This should create files starting with the same name specified in the `--contents` argument, if so, run `ncchinfo_gen_exefs.py` on `contents.0000.xxxxxxxx` (replace `xxxxxxxx` with the value in the filename).
 If nothing was extracted, then the CIA your using may be invalid.
@@ -51,8 +51,7 @@ If it fails, then there's something wrong with your CIA.
 
 But if it's successful, then, since you have decrypted everything, you might as well extract the contents and the exefs.
 ```
-ctrtool --contents=contents rom.cia
-
+ctrtool --contents=contents game.cia
 ctrtool --exefsdir=exefs --decompresscode contents.0000.xxxxxxxx
 ```
 (Don't forget to replace `xxxxxxxx` with the value in the filename)
@@ -69,8 +68,7 @@ If it fails, then there's something wrong with your CIA.
 
 But if it's successful, then extract the contents from the CIA and run `ncchinfo_gen_exefs.py` again.
 ```
-ctrtool --contents=contents rom.cia
-
+ctrtool --contents=contents game.cia
 python ncchinfo_gen_exefs.py contents.0000.xxxxxxxx
 ```
 (Don't forget to replace `xxxxxxxx` with the value in the filename)
@@ -90,11 +88,11 @@ With the xorpads you can now start decrypting the rom exefs. If your rom is a .3
 3dstool -xvt0f cci 0.cxi rom.3ds
 ```
 This will extract the main partition to `0.cxi`, if you're working with a .cia you already have extracted the main content previously (`contents.0000.xxxxxxxx`) and you will have to replace `0.cxi` with that file on the next command. Now it's time to get the actual decrypted exefs with `3dstool` using the xorpads, so you may want to move them to the same directory as the rom.
-If you only have one xorpad (.Main.exefs_norm.xorpad) run `3dstool` like this:
+If you only have one xorpad (`.Main.exefs_norm.xorpad`) run `3dstool` like this:
 ```
 3dstool -xvtf cxi 0.cxi --exefs exefs.bin --exefs-xor 000400000XXXXX00.Main.exefs_norm.xorpad
 ```
-If you have two xorpads (.Main.exefs_norm.xorpad and .Main.exefs_7x.xorpad) run `3dstool` like this instead:
+If you have two xorpads (`.Main.exefs_norm.xorpad` and `.Main.exefs_7x.xorpad`), add the `--exefs-top-xor` argument for `exefs_7x`:
 ```
 3dstool -xvtf cxi 0.cxi --exefs exefs.bin --exefs-xor 000400000XXXXX00.Main.exefs_norm.xorpad --exefs-top-xor 000400000XXXXX00.Main.exefs_7x.xorpad
 ```
@@ -107,7 +105,7 @@ Now this is the easy part, extract and decompress the `code.bin` can be done by 
 ```
 ctrtool -t exefs --exefsdir=exefs --decompresscode exefs.bin
 ```
-This should create a directory named exefs with the `code.bin` in it.
+This should create a directory named exefs with the decompressed `code.bin` in it.
 Now it's time to generate the XML by running smealum's `96crypto_dbgen.py` script.
 ```
 python 96crypto_dbgen.py exefs/code.bin > 000400000XXXXX00.xml
@@ -115,7 +113,7 @@ python 96crypto_dbgen.py exefs/code.bin > 000400000XXXXX00.xml
 (Replace the crosses with actual title id.)
 This will print the offsets into the XML.
 
-What's next? Well, technically, you're done, just place the XML on `/mmap` on root of the SD card.
+Place the XML on `/mmap` on root of the SD card, and the game should now work properly with *hax 2.7 or later.
 
 But, if you can handle editing an XML, why don't you add a comment with the name of the game and region. Just add a line on the start of the XML that looks like this:
 ```
@@ -125,5 +123,4 @@ For example, if the game was "Animal Crossing: Happy Home Designer" the USA vers
 ```
 <!-- Animal Crossing: Happy Home Designer (USA) -->
 ```
-
-And while you're at it, why not make a pull request on Github, adding missing XMLs, if you know how. But if you don't how to make a pull request, there a lot of documentation on [Github help page](https://help.github.com/) with may help you.
+And while you're at it, why not make a pull request on GitHub, adding missing XMLs, if you know how. But if you don't how to make a pull request, there a lot of documentation on [GitHub help page](https://help.github.com/) with may help you.
