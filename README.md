@@ -62,7 +62,7 @@ This should extract the decompressed `code.bin` out of the exefs on the main con
 
 ###### Method 2 - Shallow CIA Decryption
 
-This method is also easy and it can be less time consuming, but you still have to do everything comming after this part.
+This method is also easy and it can be less time consuming, but you still have to do everything coming after this part.
 
 Place the CIA inside the `/D9Game` directory on the root of the SD card.
 Start Decrypt9 from whatever entrypoint on your 3DS, go to Game Decryptor Options and select CIA Decryptor (shallow), after that you'll have to wait until it's finished.
