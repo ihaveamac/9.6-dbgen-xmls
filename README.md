@@ -10,7 +10,7 @@ This is a repository containing XML files for use with *hax 2.7. They are game-s
 - [Decrypt9 by Archshift](https://github.com/archshift/Decrypt9), [Decrypt9WIP by d0k3](https://github.com/d0k3/Decrypt9) or [Decrypt9UI by Shadowtrance](https://github.com/shadowtrance/Decrypt9)
 - [3dstool](https://github.com/dnasdw/3dstool) and [ctrtool](https://github.com/profi200/Project_CTR)
 - A rom of the game that uses 9.6 encryption
- - [List of games with their respective seeds and title IDs](http://pastebin.com/zNM8zYwa))
+ - [List of games with their respective seeds and title IDs](http://pastebin.com/zNM8zYwa)
  - Patched/rom hacks may have a modified `code.bin` so they are not a good base to start on, the original game should always be used.
 - [This modified script](https://gist.github.com/ihaveamac/304bb69e98fc4ce2d5c9) of `ncchinfo_gen.py`
 - smealum's [`96crypto_dbgen.py`](https://github.com/smealum/ninjhax2.x/blob/master/scripts/96crypto_dbgen.py) script to generate the XMLs
