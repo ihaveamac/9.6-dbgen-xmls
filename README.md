@@ -115,11 +115,13 @@ This will print the offsets into the XML.
 
 Place the XML on `/mmap` on root of the SD card, and the game should now work properly with *hax 2.7 or later.
 
-But, if you can handle editing an XML, why don't you add a comment with the name of the game and region. Just add a line on the start of the XML that looks like this:
+### Add to the repository
+
+To add your newly generated XML to this repository, add the game title to the first line of the XML, like this:
 ```
 <!-- Name of Game (Region) -->
 ```
-For example, if the game was "Animal Crossing: Happy Home Designer" the USA version, it would look like this:
+For example, if the game was "Animal Crossing: Happy Home Designer" for the USA version, it would look like this:
 ```
 <!-- Animal Crossing: Happy Home Designer (USA) -->
 ```
