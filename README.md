@@ -1,5 +1,5 @@
 # *hax 2.7 XML repository for 9.6-crypto titles
-This is a repository containing XML files for use with *hax 2.7. They are game-specific offsets for titles that are using 9.6 encryption. These XML files should be placed at "mmap" at the root of your 3DS SD card.
+This is a repository containing XML files for use with *hax 2.7. They are game-specific offsets for titles that are using [seed encryption](https://3dbrew.org/wiki/Filesystem_services#SEEDDB) added in 9.6.0-24. These XML files should be placed at "mmap" at the root of your 3DS SD card.
 
 ## Generating the XMLs
 
