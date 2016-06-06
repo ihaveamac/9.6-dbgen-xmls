@@ -1,0 +1,22 @@
+<!-- Mutant Mudds Super Challenge (USA) -->
+<header>
+	<data_address>0x1CE000</data_address>
+	<processAppCodeAddress>0x105000</processAppCodeAddress>
+	<num>0x2</num>
+	<text_end>0x160000</text_end>
+	<processLinearOffset>0xD0000</processLinearOffset>
+	<processHookAddress>0x103A00</processHookAddress>
+	<data_size>0x0</data_size>
+</header>
+<map>
+	<entry>
+		<src>0x100000</src>
+		<dst>0x8000</dst>
+		<size>0xc8000</size>
+	</entry>
+	<entry>
+		<src>0x1c8000</src>
+		<dst>-0x6000</dst>
+		<size>0x6000</size>
+	</entry>
+</map>
