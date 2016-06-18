@@ -10,6 +10,7 @@ To quickly download all the XMLs, click "Clone or download" then "[Download ZIP]
 #### I keep getting a red screen when trying to use a 9.6+ title
 * You might not be using the latest Homebrew Launcher build in this repository. The latest in the starter pack and mashers's Grid Launcher currently don't support custom memmaps.
 * You might not have the XML for the title. Search for its name or title ID in the repository.
+* Check to see that you're using \*hax 2.7(the version is usually displayed when starting it). Update the payload and try again.
 * The XML might not exist in the repo yet.
 
 #### I keep getting a yellow screen when trying to use a 9.6+ title
