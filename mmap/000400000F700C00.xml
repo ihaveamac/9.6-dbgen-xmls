@@ -1,4 +1,4 @@
-<!-- amiibo test app(?) (JPN) -->
+<!-- amiibo lottery application (JPN) -->
 <header>
 	<data_address>0x243000</data_address>
 	<processAppCodeAddress>0x105000</processAppCodeAddress>
