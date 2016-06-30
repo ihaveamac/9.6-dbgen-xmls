@@ -1,5 +1,5 @@
 # \*hax 2.7 mmap XML repository for 9.6-crypto titles
-This is a repository containing XML files with custom memory mapping for use with \*hax 2.7. They are game-specific offsets for titles that are using [seed encryption](https://3dbrew.org/wiki/Filesystem_services#SEEDDB) added in 9.6.0-24.
+This is a repository containing XML files with custom memory mapping for use with \*hax 2.7. They are game-specific offsets primarily for titles that are using [seed encryption](https://3dbrew.org/wiki/Filesystem_services#SEEDDB) added in 9.6.0-24.
 
 ## Using the XMLs
 To quickly download all the XMLs, click "Clone or download" then "[Download ZIP](https://github.com/ihaveamac/9.6-dbgen-xmls/archive/master.zip)" near the top of this page. Then place the `mmap` folder at the root of your 3DS SD card, and replace `boot.3dsx` with `new_boot.3dsx`, or use it like any other homebrew application.  
