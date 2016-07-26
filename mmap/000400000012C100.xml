@@ -1,11 +1,11 @@
 <!-- Citizens of Earth (USA) -->
 <header>
-	<data_address>0x3B7000</data_address>
-	<processAppCodeAddress>0x245000</processAppCodeAddress>
+	<data_address>0x3BA000</data_address>
+	<processAppCodeAddress>0x200000</processAppCodeAddress>
 	<num>0x3</num>
-	<text_end>0x313000</text_end>
+	<text_end>0x316000</text_end>
 	<processLinearOffset>0x200000</processLinearOffset>
-	<processHookAddress>0x2375D0</processHookAddress>
+	<processHookAddress>0x104990</processHookAddress>
 	<data_size>0x0</data_size>
 </header>
 <map>
@@ -16,12 +16,12 @@
 	</entry>
 	<entry>
 		<src>0x2f8000</src>
-		<dst>-0xb0000</dst>
-		<size>0xb0000</size>
+		<dst>-0xc0000</dst>
+		<size>0xc0000</size>
 	</entry>
 	<entry>
-		<src>0x3a8000</src>
-		<dst>-0xbf000</dst>
-		<size>0xf000</size>
+		<src>0x3b8000</src>
+		<dst>-0xc2000</dst>
+		<size>0x2000</size>
 	</entry>
 </map>
