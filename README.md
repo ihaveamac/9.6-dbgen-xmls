@@ -4,7 +4,7 @@ This is a repository containing XML files with custom memory mapping for use wit
 ## Using the XMLs
 To quickly download all the XMLs, click "Clone or download" then "[Download ZIP](https://github.com/ihaveamac/9.6-dbgen-xmls/archive/master.zip)" near the top of this page. Then place the `mmap` folder at the root of your 3DS SD card, and replace `boot.3dsx` with `new_boot.3dsx`, or use it like any other homebrew application.  
 <img src="https://github.com/ihaveamac/ihaveamac.github.io/raw/master/downloadzip.png" width="360" height="186">  
-[`new_boot.3dsx`](https://github.com/ihaveamac/9.6-dbgen-xmls/blob/master/new_boot.3dsx) is reposted from the [Homebrew Launcher site](http://smealum.github.io/3ds/) and starter kit, and is required to launch titles with these XMLs.
+[`new_boot.3dsx`](https://github.com/ihaveamac/9.6-dbgen-xmls/blob/master/new_boot.3dsx) is rehosted from the [Homebrew Launcher site](http://smealum.github.io/3ds/) and starter kit, and is required to launch titles with these XMLs.
 
 ## Probably Frequently Asked Questions
 #### I keep getting a red screen when trying to use a 9.6+ title
