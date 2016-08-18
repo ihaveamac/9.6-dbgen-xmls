@@ -1,0 +1,17 @@
+<!-- YO-KAI WATCH (EUR) -->
+<header>
+	<data_address>0x5F8000</data_address>
+	<processAppCodeAddress>0x105000</processAppCodeAddress>
+	<num>0x1</num>
+	<text_end>0x160000</text_end>
+	<processLinearOffset>0x500000</processLinearOffset>
+	<processHookAddress>0x103860</processHookAddress>
+	<data_size>0x0</data_size>
+</header>
+<map>
+	<entry>
+		<src>0x100000</src>
+		<dst>0x8000</dst>
+		<size>0x4f8000</size>
+	</entry>
+</map>
