@@ -1,0 +1,27 @@
+<!-- モンスターハンター ストーリーズ (JPN) -->
+<header>
+	<data_address>0xBBB000</data_address>
+	<processAppCodeAddress>0x105000</processAppCodeAddress>
+	<num>0x3</num>
+	<text_end>0x160000</text_end>
+	<processLinearOffset>0xA00000</processLinearOffset>
+	<processHookAddress>0x100100</processHookAddress>
+	<data_size>0x0</data_size>
+</header>
+<map>
+	<entry>
+		<src>0x100000</src>
+		<dst>0x8000</dst>
+		<size>0x9f8000</size>
+	</entry>
+	<entry>
+		<src>0xaf8000</src>
+		<dst>-0xc0000</dst>
+		<size>0xc0000</size>
+	</entry>
+	<entry>
+		<src>0xbb8000</src>
+		<dst>-0xc3000</dst>
+		<size>0x3000</size>
+	</entry>
+</map>
