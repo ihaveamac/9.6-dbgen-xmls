@@ -1,0 +1,22 @@
+<!-- Kutar Quiz (USA) -->
+<header>
+	<data_address>0x174000</data_address>
+	<processAppCodeAddress>0x105000</processAppCodeAddress>
+	<num>0x2</num>
+	<text_end>0x160000</text_end>
+	<processLinearOffset>0x70000</processLinearOffset>
+	<processHookAddress>0x104220</processHookAddress>
+	<data_size>0x0</data_size>
+</header>
+<map>
+	<entry>
+		<src>0x100000</src>
+		<dst>0x8000</dst>
+		<size>0x68000</size>
+	</entry>
+	<entry>
+		<src>0x168000</src>
+		<dst>-0xc000</dst>
+		<size>0xc000</size>
+	</entry>
+</map>
