@@ -5,6 +5,20 @@ This is a repository containing XML files with custom memory mapping for use wit
 An on-console downloader by @Ryuzaki-MrL can be used to download all and new XMLs. A recent Homebrew Launcher is still required to use them.
 * [Custom mmap XML Downloader](https://gbatemp.net/threads/release-custom-mmap-xml-downloader.438878/)
 
+## Notes about PASLR
+A few titles have PASLR ([physical address space layout randomization](https://en.wikipedia.org/wiki/Address_space_layout_randomization)), starting with 11.0.0-33. XMLs for these titles will not bypass this, an update to \*hax must be done.
+* Cubic Ninja
+* The Legend of Zelda: Ocarina of Time 3D
+* VVVVVV
+* Freakyforms Deluxe: Your Creations, Alive!
+* Pokémon Super Mystery Dungeon
+* Pokémon Omega Ruby
+* Pokémon Alpha Sapphire
+* Citizens of Earth
+* Pokémon Picross
+* Paper Mario: Sticker Star
+* Steel Diver: Sub Wars
+
 ### Manual
 1. To quickly download all the XMLs, click "Clone or download" then "[Download ZIP](https://github.com/ihaveamac/9.6-dbgen-xmls/archive/master.zip)" near the top of this page.
 2. Place the `mmap` folder at the root of your 3DS SD card.
