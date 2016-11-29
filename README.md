@@ -1,10 +1,6 @@
 # \*hax 2.7 mmap XML repository for 9.6-crypto titles
 This is a repository containing XML files with custom memory mapping for use with \*hax 2.7. They are game-specific offsets primarily for titles that are using [seed encryption](https://3dbrew.org/wiki/Filesystem_services#SEEDDB) added in 9.6.0-24.
 
-## Using the XMLs
-An on-console downloader by @Ryuzaki-MrL can be used to download all and new XMLs. A recent Homebrew Launcher is still required to use them.
-* [Custom mmap XML Downloader](https://gbatemp.net/threads/release-custom-mmap-xml-downloader.438878/)
-
 ## Notes about PASLR
 A few titles have PASLR ([physical address space layout randomization](https://en.wikipedia.org/wiki/Address_space_layout_randomization)), starting with 11.0.0-33. XMLs for these titles will not bypass this, an update to \*hax must be done.
 * Cubic Ninja
@@ -18,6 +14,10 @@ A few titles have PASLR ([physical address space layout randomization](https://e
 * Pokémon Picross
 * Paper Mario: Sticker Star
 * Steel Diver: Sub Wars
+
+## Using the XMLs
+An on-console downloader by @Ryuzaki-MrL can be used to download all and new XMLs. A recent Homebrew Launcher is still required to use them.
+* [Custom mmap XML Downloader](https://gbatemp.net/threads/release-custom-mmap-xml-downloader.438878/)
 
 ### Manual
 1. To quickly download all the XMLs, click "Clone or download" then "[Download ZIP](https://github.com/ihaveamac/9.6-dbgen-xmls/archive/master.zip)" near the top of this page.
