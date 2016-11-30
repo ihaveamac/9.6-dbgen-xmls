@@ -25,7 +25,7 @@ An on-console downloader by @Ryuzaki-MrL can be used to download all and new XML
 3. Place `boot.3dsx` on at the root of the SD card, replacing any existing one.
 
 <img src="https://github.com/ihaveamac/ihaveamac.github.io/raw/master/downloadzip.png" width="360" height="186">  
-[`new_boot.3dsx`](https://github.com/ihaveamac/9.6-dbgen-xmls/blob/master/new_boot.3dsx) is rehosted from the [Homebrew Launcher site](http://smealum.github.io/3ds/) and starter kit, and is required to launch titles with these XMLs.
+[`boot.3dsx`](https://github.com/ihaveamac/9.6-dbgen-xmls/blob/master/boot.3dsx) is rehosted from the [Homebrew Launcher site](http://smealum.github.io/3ds/) and starter kit, and is required to launch titles with these XMLs.
 
 ## Probably Frequently Asked Questions
 #### I keep getting a red screen when trying to use a 9.6+ title
