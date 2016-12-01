@@ -8,8 +8,8 @@ A few titles have PASLR ([physical address space layout randomization](https://e
 * VVVVVV
 * Freakyforms Deluxe: Your Creations, Alive!
 * Pokémon Super Mystery Dungeon
-* Pokémon Omega Ruby
-* Pokémon Alpha Sapphire
+* Pokémon Omega Ruby ([workaround possible with Pokémon Bank](https://github.com/ihaveamac/9.6-dbgen-xmls/issues/20#issuecomment-251015216))
+* Pokémon Alpha Sapphire ([workaround possible with Pokémon Bank](https://github.com/ihaveamac/9.6-dbgen-xmls/issues/20#issuecomment-251015216))
 * Citizens of Earth
 * Pokémon Picross
 * Paper Mario: Sticker Star
