@@ -3,17 +3,22 @@ This is a repository containing XML files with custom memory mapping for use wit
 
 ## Notes about PASLR
 A few titles have PASLR ([physical address space layout randomization](https://en.wikipedia.org/wiki/Address_space_layout_randomization)), starting with 11.0.0-33. XMLs for these titles will not bypass this, an update to \*hax must be done.
-* Cubic Ninja
-* The Legend of Zelda: Ocarina of Time 3D
-* VVVVVV
-* Freakyforms Deluxe: Your Creations, Alive!
-* Pokémon Super Mystery Dungeon
-* Pokémon Omega Ruby ([workaround possible with Pokémon Bank](https://github.com/ihaveamac/9.6-dbgen-xmls/issues/20#issuecomment-251015216))
-* Pokémon Alpha Sapphire ([workaround possible with Pokémon Bank](https://github.com/ihaveamac/9.6-dbgen-xmls/issues/20#issuecomment-251015216))
-* Citizens of Earth
-* Pokémon Picross
-* Paper Mario: Sticker Star
-* Steel Diver: Sub Wars
+
+| Title | PASLR since |
+| ----- | ----- |
+| Cubic Ninja | 11.0.0-33 |
+| The Legend of Zelda: Ocarina of Time 3D | 11.0.0-33 |
+| VVVVVV | 11.1.0-34 |
+| Freakyforms Deluxe: Your Creations, Alive! | 11.1.0-34 |
+| Pokémon Super Mystery Dungeon | 11.1.0-34 |
+| Pokémon Omega Ruby | 11.1.0-34 |
+| Pokémon Alpha Sapphire | 11.1.0-34 |
+| Citizens of Earth | 11.1.0-34 |
+| Pokémon Picross | 11.1.0-34 |
+| Paper Mario: Sticker Star | 11.2.0-35 |
+| Steel Diver: Sub Wars | 11.2.0-35 |
+
+A workaround for Pokémon Omega Ruby and Pokémon Alpha Sapphire exists using Pokémon Bank. Read [this issue comment](https://github.com/ihaveamac/9.6-dbgen-xmls/issues/20#issuecomment-251015216) for more details.
 
 ## Using the XMLs
 An on-console downloader by @Ryuzaki-MrL can be used to download all and new XMLs. A recent Homebrew Launcher is still required to use them.
